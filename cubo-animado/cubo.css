@@ -1,0 +1,82 @@
+body {
+    margin: 0;
+    height: 100vh;
+    display: flex;
+    justify-content: center;  /* centra horizontalmente */
+    align-items: center;  /* centra verticalmente */
+    perspective: 1000px;
+}
+
+.padre {
+    width: 400px;
+    height: 400px;
+    display: flex;
+    transform-style: preserve-3d;
+    justify-content: center;
+    position: relative;
+    animation: girar 4s infinite linear;
+}
+
+.hijo {
+    width: 400px;
+    height: 400px;
+    position: absolute;
+}
+
+/* Izquierda */
+.cara1 {
+    background-image: linear-gradient(to bottom, red, blue);
+    transform: translateX(200px) rotateY(90deg);
+}
+
+/* Derecha */
+.cara2 {
+    background-image: linear-gradient(to bottom, green, blue);
+    transform: translateX(-200px) rotateY(90deg);
+}
+
+/* Frente */
+.cara3 {
+    background-image: linear-gradient(to bottom, green, orange);
+    transform: translateY(200px) rotateX(90deg);
+}
+
+/* Atras */
+.cara4 {
+    background-image: linear-gradient(to bottom, red, violet);
+    transform: translateY(-200px) rotateX(90deg);
+}
+
+/* Abajo */
+.cara5 {
+    background-image: linear-gradient(to bottom, yellow, rgb(245, 154, 35));
+    transform: translateZ(-200px);
+}
+
+/* Arriba */
+.cara6 {
+    background-image: linear-gradient(to bottom, rgb(245, 51, 44), magenta);
+    transform: translateZ(200px);
+}
+
+@keyframes girar {
+    0% {
+        transform: rotateY(0deg) rotateX(20deg);
+    }
+
+    25% {
+        transform: rotateY(90deg) rotateX(50deg);
+    }
+
+    50% {
+        transform: rotateY(180deg) rotateX(10deg);
+    }
+
+    75% {
+        transform: rotateY(270deg) rotateX(-30deg);
+    }
+
+    100% {
+        transform: rotateY(360deg) rotateX(20deg);
+    }
+}

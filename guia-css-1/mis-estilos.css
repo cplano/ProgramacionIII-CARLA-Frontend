@@ -1,0 +1,119 @@
+h1 {
+    color: red;
+}
+
+.texto-azul {
+    color: blue;
+}
+
+a {
+    text-decoration: none;
+}
+
+.texto-tachado {
+    text-decoration: line-through;
+}
+
+nav ul {
+    list-style: none;
+}
+
+body {
+    background-image: url("fondo.jpg");
+    background-repeat: no-repeat;
+}
+
+body {
+    font-family: 'Roboto', sans-serif;
+}
+
+html {
+    font-size: 62.5%;
+}
+
+h2 {
+    font-size: 3em;
+}
+
+/*Ejercicio 8*/
+texto-verde {
+    color: green font-size: 20px;
+}
+
+.parrafo-importante {
+    background-color yellow;
+    font-weight: bold;
+}
+
+/*
+Respuesta IA:
+1. El selector texto-verde está mal si se quiere usar como clase, porque en CSS
+las clases se escriben con un punto al comienzo. Por eso debe ser .texto-verde.
+
+2. En color: green falta el punto y coma final. En CSS, el punto y coma separa
+una propiedad de la siguiente, por eso debe escribirse color: green;.
+
+3. En background-color yellow; falta el signo dos puntos. En CSS, cada propiedad
+debe escribirse con el formato propiedad: valor;. Por eso debe ser
+background-color: yellow;.
+
+codigo correcto::after
+
+.texto-verde {
+    color: green;
+    font-size: 20px;
+}
+
+.parrafo-importante {
+    background-color: yellow;
+    font-weight: bold;
+}
+*/
+
+/*Ejercicio 9*/
+.padre {
+    color: purple;
+    border: 2px solid black;
+}
+
+.hijo {
+    border: inherit;
+}
+
+.hijo-sobrescrito {
+    border: 2px dashed red;
+}
+
+/*
+Respuesta IA:
+En este ejemplo, el color sí se hereda desde .padre hacia los elementos hijos,
+pero border no se hereda automáticamente porque es una propiedad no heredable.
+Para forzar la herencia se usa border: inherit; en .hijo.
+Para sobrescribirla correctamente, se declara un nuevo valor, como
+border: 2px dashed red; en .hijo-sobrescrito.
+*/
+
+/*Ejercicio 10*/
+.seccion-parallax {
+    min-height: 400px;
+    background-image: url("fondo.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+}
+
+.contenido-normal {
+    min-height: 500px;
+    background-color: white;
+    padding: 40px;
+}
+
+/*
+Respuesta IA:
+La propiedad background-attachment: fixed hace que la imagen de fondo quede fija
+respecto a la ventana del navegador. Cuando el usuario hace scroll, el contenido
+se mueve, pero el fondo permanece quieto, generando un efecto similar al parallax.
+Para que funcione mejor, se usa junto con background-size: cover y una sección
+con altura suficiente para poder ver el desplazamiento.
+*/

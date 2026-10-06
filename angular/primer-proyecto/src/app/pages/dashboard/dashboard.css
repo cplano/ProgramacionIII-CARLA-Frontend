@@ -1,0 +1,23 @@
+/*
+  Estilos del Dashboard.
+  En Angular los estilos de un componente están "encapsulados":
+  estas reglas solo afectan al HTML de dashboard.html, no al resto de la app.
+*/
+
+/* Contenedor principal del dashboard */
+main {
+  padding: 20px;              /* espacio interno alrededor del contenido */
+  background-color: #f4f4f4;  /* fondo gris claro */
+  min-height: 300px;          /* alto mínimo para que no quede "aplastado" */
+}
+
+/* Título "Dashboard" */
+h2 {
+  color: #1976d2;             /* azul, igual que el fondo del header */
+}
+
+/* Cada línea de datos */
+p {
+  font-size: 18px;            /* texto un poco más grande que el normal */
+  margin: 10px 0;             /* 10px arriba y abajo, 0 a los costados */
+}

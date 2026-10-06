@@ -1,0 +1,7 @@
+/* Estilos del Footer (solo afectan a footer.html) */
+footer {
+  background-color: #0a0a0a;  /* fondo casi negro */
+  color: white;               /* texto blanco */
+  text-align: center;         /* texto centrado */
+  padding: 15px;              /* espacio interno */
+}
