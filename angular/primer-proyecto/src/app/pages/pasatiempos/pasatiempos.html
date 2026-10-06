@@ -1,0 +1,41 @@
+<!-- EJERCICIO 2 - PASO 3: renderizado del FormArray en el HTML -->
+<main>
+  <h2>Mis Pasatiempos</h2>
+
+  <form [formGroup]="pasatiemposForm" (ngSubmit)="onSubmit()">
+
+    <!-- formArrayName="pasatiempos": todo lo de adentro pertenece al FormArray -->
+    <div formArrayName="pasatiempos">
+
+      <!-- @for recorre los controles del FormArray (no sabemos cuantos hay).
+           track $index: Angular identifica cada elemento por su posicion.
+           let i = $index: guarda la posicion (0, 1, 2...) en la variable i. -->
+      @for (pasatiempo of pasatiempos.controls; track $index; let i = $index) {
+        <div class="fila">
+          <!-- id="pasatiempo-{{i}}": cada input tiene un id distinto (pasatiempo-0, pasatiempo-1...) -->
+          <label for="pasatiempo-{{i}}">Pasatiempo {{ i + 1 }}</label>
+          <!-- formControlName="{{i}}": en un FormArray los controles no tienen nombre,
+               se identifican por su POSICION. El input i se conecta con el control i. -->
+          <input id="pasatiempo-{{i}}" type="text" formControlName="{{i}}">
+          <!-- Boton para quitar este campo (no se muestra si queda uno solo) -->
+          @if (pasatiempos.length > 1) {
+            <button type="button" class="quitar" (click)="eliminarPasatiempo(i)">✕</button>
+          }
+        </div>
+      }
+    </div>
+
+    <div class="botones">
+      <!-- type="button" para que NO envie el formulario, solo agregue un campo -->
+      <button type="button" (click)="agregarPasatiempo()">+ Agregar pasatiempo</button>
+      <button type="submit">Guardar</button>
+    </div>
+  </form>
+
+  <!-- El valor del formulario se actualiza en vivo al escribir o agregar campos -->
+  <section class="estado">
+    <p>Cantidad de pasatiempos: <strong>{{ pasatiempos.length }}</strong></p>
+    <pre>{{ pasatiemposForm.value | json }}</pre>
+    <p class="ayuda">Al tocar "Guardar" el valor se imprime en la consola del navegador (F12 → Console).</p>
+  </section>
+</main>

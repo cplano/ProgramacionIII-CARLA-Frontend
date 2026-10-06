@@ -1,0 +1,54 @@
+<!--
+  EJERCICIO 1 - PASO 2: conexion entre el HTML y el modelo de TypeScript.
+  [formGroup]="registroForm": vincula el <form> con el FormGroup de registro.ts
+  (ngSubmit)="onSubmit()": al tocar "Registrarse" (o apretar Enter) ejecuta onSubmit()
+-->
+<main>
+  <h2>Formulario de Registro</h2>
+
+  <form [formGroup]="registroForm" (ngSubmit)="onSubmit()">
+
+    <!-- formControlName conecta cada input con su FormControl del modelo -->
+    <label for="nombre">Nombre</label>
+    <input id="nombre" type="text" formControlName="nombre">
+    <!-- Se muestra el error si el campo es invalido y el usuario ya paso por el -->
+    @if (registroForm.controls.nombre.invalid && registroForm.controls.nombre.touched) {
+      <small class="error">El nombre es obligatorio.</small>
+    }
+
+    <label for="email">Email</label>
+    <input id="email" type="email" formControlName="email">
+    @if (registroForm.controls.email.invalid && registroForm.controls.email.touched) {
+      <small class="error">El email es obligatorio.</small>
+    }
+
+    <!-- formGroupName="direccion": todo lo que esta adentro pertenece al grupo
+         anidado "direccion". Por eso aca formControlName="calle" se refiere a
+         direccion.calle y no a un campo "calle" del grupo principal. -->
+    <fieldset formGroupName="direccion">
+      <legend>Dirección</legend>
+
+      <label for="calle">Calle</label>
+      <input id="calle" type="text" formControlName="calle">
+
+      <label for="ciudad">Ciudad</label>
+      <input id="ciudad" type="text" formControlName="ciudad">
+    </fieldset>
+
+    <div class="botones">
+      <!-- type="button": NO envia el formulario, solo ejecuta su (click) -->
+      <button type="button" (click)="cargarDireccionDePrueba()">Cargar Dirección de Prueba</button>
+
+      <!-- type="submit": dispara (ngSubmit). Se deshabilita si el formulario es invalido -->
+      <button type="submit" [disabled]="registroForm.invalid">Registrarse</button>
+    </div>
+  </form>
+
+  <!-- Estado del formulario en vivo (para ver como reacciona el modelo).
+       status: VALID o INVALID. | json muestra el objeto como texto JSON. -->
+  <section class="estado">
+    <p>Estado del formulario: <strong>{{ registroForm.status }}</strong></p>
+    <pre>{{ registroForm.value | json }}</pre>
+    <p class="ayuda">Al tocar "Registrarse" el valor se imprime en la consola del navegador (F12 → Console).</p>
+  </section>
+</main>

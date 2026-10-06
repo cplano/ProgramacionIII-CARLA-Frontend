@@ -1,0 +1,90 @@
+/* Estilos de Pasatiempos (encapsulados: solo afectan a pasatiempos.html) */
+
+main {
+  padding: 20px;
+  background-color: #f4f4f4;
+  min-height: 300px;
+}
+
+h2 {
+  color: #1976d2;
+  text-align: center;
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  max-width: 450px;
+  margin: 20px auto;
+  padding: 20px;
+  background-color: white;
+  border-radius: 8px;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.15);
+}
+
+/* Cada pasatiempo: etiqueta, campo y boton en una fila */
+.fila {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 8px;
+}
+
+label {
+  font-weight: bold;
+  white-space: nowrap; /* "Pasatiempo 1" no se corta en dos lineas */
+}
+
+input {
+  flex: 1; /* el input ocupa todo el espacio que sobra */
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  font-size: 16px;
+}
+
+.botones {
+  display: flex;
+  gap: 10px;
+}
+
+button {
+  flex: 1;
+  padding: 12px;
+  border: none;
+  border-radius: 5px;
+  background-color: #1976d2;
+  color: white;
+  font-size: 15px;
+  cursor: pointer;
+}
+
+button[type="button"] {
+  background-color: #607d8b;
+}
+
+/* Boton chico y rojo para quitar un pasatiempo */
+button.quitar {
+  flex: none;
+  padding: 6px 10px;
+  background-color: #e53935;
+}
+
+.estado {
+  max-width: 450px;
+  margin: 0 auto;
+  padding: 12px;
+  background-color: #263238;
+  color: #eceff1;
+  border-radius: 6px;
+}
+
+pre {
+  white-space: pre-wrap;
+}
+
+.ayuda {
+  font-size: 13px;
+  color: #b0bec5;
+}
