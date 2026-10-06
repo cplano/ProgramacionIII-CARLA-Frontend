@@ -1,20 +1,23 @@
-/* RESET */
+/* Hoja de estilos compartida por pagina-de-negocio.html y about-us.html.
+   Colores principales: verde petroleo #002b2b, dorado #d6a12b y #f3c64e. */
+
+/* RESET: saca margenes/rellenos por defecto de TODOS los elementos (*) */
 * {
     margin: 0;
     padding: 0;
-    box-sizing: border-box;
+    box-sizing: border-box; /* El width incluye padding y borde */
 }
 
 /* ESTILOS GENERALES */
 html {
-    font-size: 100%;
+    font-size: 100%; /* Tamaño base del navegador (16px) */
 }
 
 body {
     font-family: Arial, sans-serif;
     background-color: #002b2b;
     color: #f4f1ea;
-    line-height: 1.6;
+    line-height: 1.6; /* Separacion entre lineas: 1.6 veces el tamaño de la letra */
 }
 
 /* HEADER */
@@ -23,51 +26,54 @@ body {
     color: white;
     padding: 25px;
     text-align: left;
-    border-bottom: 4px solid #d6a12b;
+    border-bottom: 4px solid #d6a12b; /* Linea dorada debajo del header */
     position: relative;
 }
 
+/* Logo + titulo en fila, alineados al centro verticalmente */
 .marca {
     display: flex;
-    align-items: center;
-    justify-content: flex-start;
+    align-items: center;          /* Centrado vertical */
+    justify-content: flex-start;  /* Pegados a la izquierda */
     gap: 15px;
 }
 
 .marca img {
     width: 80px;
     height: 80px;
-    object-fit: contain;
+    object-fit: contain; /* La imagen entra completa sin deformarse */
 }
 
 .marca h1 {
     margin: 0;
     font-size: 38px;
-    letter-spacing: 2px;
+    letter-spacing: 2px; /* Espacio entre letras */
 }
 
-
+/* El <span> dentro del h1 (la palabra "SEGURO") va en dorado */
 .marca h1 span {
     color: #d6a12b;
 }
 
-/* BOTONES DEL MENÚ */
+/* BOTONES DEL MENÚ (son enlaces <a> con forma de boton) */
 .boton-autogestion,
 .boton-cotiza {
     background-color: #d6a12b;
     color: #002b2b;
-    padding: 10px 16px;
-    border-radius: 25px;
+    padding: 10px 16px;       /* 10px arriba/abajo, 16px izquierda/derecha */
+    border-radius: 25px;      /* Bordes muy redondeados (forma de pastilla) */
     text-decoration: none;
     font-weight: bold;
     border: 2px solid #f3c64e;
-    white-space: nowrap;
+    white-space: nowrap;      /* El texto no se corta en dos lineas */
 }
 
+/* Esta regla va despues, entonces le cambia el fondo solo a .boton-cotiza (cascada) */
 .boton-cotiza {
     background-color: white;
 }
 
+/* :hover = cuando el mouse esta encima */
 .boton-autogestion:hover,
 .boton-cotiza:hover {
     background-color: #f3c64e;
@@ -79,19 +85,22 @@ body {
     width: 100%;
 }
 
+/* ">" = hijo DIRECTO: solo la lista principal del nav, no los submenus */
 .header nav > ul {
     list-style: none;
-    display: flex;
+    display: flex;        /* Items del menu en fila */
     align-items: center;
     gap: 18px;
     margin-top: 20px;
     padding: 0;
 }
 
+/* margin-left: auto empuja este item hasta el extremo derecho */
 .item-cotiza {
     margin-left: auto;
 }
 
+/* relative: para que el submenu (absolute) se ubique debajo de SU item */
 nav li {
     position: relative;
 }
@@ -108,18 +117,20 @@ nav a:hover {
 
 
 /* SUBMENU DESPLEGABLE */
+/* "nav ul ul" = una lista dentro de otra lista: los submenus. Ocultos por defecto. */
 nav ul ul {
     display: none;
-    position: absolute;
-    top: 100%;
+    position: absolute;  /* Flota encima del contenido, sin empujarlo */
+    top: 100%;           /* Justo debajo del item padre */
     left: 0;
     background-color: #003b3b;
     min-width: 190px;
     padding: 10px 0;
     border: 1px solid #d6a12b;
-    z-index: 10;
+    z-index: 10;         /* Queda por encima de otros elementos (como el carrusel) */
 }
 
+/* Al pasar el mouse por un item, se muestra su submenu (solo CSS, sin JavaScript) */
 nav li:hover > ul {
     display: block;
 }
@@ -129,37 +140,43 @@ nav ul ul li {
 }
 
 nav ul ul a {
-    display: block;
+    display: block; /* El enlace ocupa todo el ancho: mas facil de clickear */
     color: white;
 }
 
-/* CARRUSEL */
+/* CARRUSEL (solo con CSS)
+   Idea: las 3 imagenes estan en fila dentro de .carrusel-contenedor (300% de ancho).
+   .carrusel es una "ventana" que solo muestra una imagen a la vez (overflow: hidden),
+   y la animacion va corriendo el contenedor hacia la izquierda. */
 .carrusel {
     width: 100%;
     max-width: 1100px;
     height: 320px;
-    margin: 25px auto 0;
-    overflow: hidden;
+    margin: 25px auto 0;  /* arriba 25px, costados auto (centrado), abajo 0 */
+    overflow: hidden;     /* Oculta lo que se sale de la ventana */
     border-radius: 18px;
     border: 2px solid #d6a12b;
 }
 
 .carrusel-contenedor {
-    display: flex;
-    width: 300%;
+    display: flex;        /* Imagenes en fila */
+    width: 300%;          /* 3 imagenes = 3 veces el ancho de la ventana */
     height: 100%;
-    animation: moverCarrusel 15s infinite;
+    animation: moverCarrusel 15s infinite; /* 15 segundos por ciclo, se repite siempre */
 }
 
 .carrusel-contenedor img {
-    width: 33.333%;
+    width: 33.333%;       /* Cada imagen = un tercio del contenedor = ancho de la ventana */
     height: 100%;
-    object-fit: cover;
+    object-fit: cover;    /* Llena el espacio recortando si hace falta, sin deformar */
 }
 
+/* translateX(-33.333%) corre el contenedor un tercio = muestra la imagen siguiente.
+   Los tramos con el mismo valor (0%-25%, 35%-60%, 70%-95%) son las PAUSAS
+   en cada imagen; los tramos entre medio son el deslizamiento. */
 @keyframes moverCarrusel {
     0% {
-        transform: translateX(0);
+        transform: translateX(0);          /* Imagen 1 */
     }
 
     25% {
@@ -167,7 +184,7 @@ nav ul ul a {
     }
 
     35% {
-        transform: translateX(-33.333%);
+        transform: translateX(-33.333%);   /* Imagen 2 */
     }
 
     60% {
@@ -175,7 +192,7 @@ nav ul ul a {
     }
 
     70% {
-        transform: translateX(-66.666%);
+        transform: translateX(-66.666%);   /* Imagen 3 */
     }
 
     95% {
@@ -183,11 +200,11 @@ nav ul ul a {
     }
 
     100% {
-        transform: translateX(0);
+        transform: translateX(0);          /* Vuelve a la imagen 1 */
     }
 }
 
-/* MAIN */
+/* MAIN: contenido (izquierda) y aside (derecha) lado a lado */
 .main {
     display: flex;
     gap: 25px;
@@ -195,6 +212,8 @@ nav ul ul a {
 }
 
 /* SECTION */
+/* flex: 3 = ocupa 3 partes del ancho (el aside tiene flex: 1, o sea 1 parte).
+   Adentro usa GRID con 2 columnas iguales (1fr = 1 fraccion del espacio). */
 .contenido {
     flex: 3;
     display: grid;
@@ -202,6 +221,7 @@ nav ul ul a {
     gap: 25px;
 }
 
+/* Version para "Nosotros": una sola columna */
 .contenido-nosotros {
     flex: 3;
     display: grid;
@@ -209,7 +229,7 @@ nav ul ul a {
     gap: 25px;
 }
 
-/* ARTICLES */
+/* ARTICLES: cada tarjeta blanca con borde dorado */
 article {
     background-color: white;
     color: #082f2f;
@@ -233,12 +253,13 @@ article a {
     font-weight: bold;
 }
 
+/* Imagenes dentro de las tarjetas: centradas y como maximo 260px */
 article img {
     width: 100%;
     max-width: 260px;
-    height: auto;
+    height: auto;           /* Mantiene la proporcion */
     display: block;
-    margin: 0 auto 15px;
+    margin: 0 auto 15px;    /* auto a los costados = centrada */
 }
 
 
@@ -252,7 +273,7 @@ article img {
 .horarios-grilla {
     width: 100%;
     margin: 15px 0;
-    border-collapse: collapse;
+    border-collapse: collapse; /* Une los bordes de las celdas en una sola linea */
     background-color: #fffaf0;
 }
 
@@ -263,13 +284,13 @@ article img {
 
 /* VIDEO */
 iframe {
-    max-width: 100%;
+    max-width: 100%; /* El video nunca es mas ancho que su tarjeta */
     border-radius: 10px;
 }
 
-/* ASIDE */
+/* ASIDE (barra lateral) */
 .aside {
-    flex: 1;
+    flex: 1; /* 1 parte del ancho (el contenido tiene 3) */
     background-color: #002b2b;
     color: white;
     padding: 20px;
@@ -308,20 +329,23 @@ iframe {
     border-top: 4px solid #d6a12b;
 }
 
-/* TABLET */
+/* RESPONSIVE - TABLET: pantallas de 900px o menos */
 @media screen and (max-width: 900px) {
+    /* El aside pasa abajo del contenido en vez de al costado */
     .main {
         flex-direction: column;
     }
 
+    /* Las tarjetas pasan de 2 columnas a 1 */
     .contenido {
         grid-template-columns: 1fr;
     }
 }
 
 
-/* CELULAR */
+/* RESPONSIVE - CELULAR: pantallas de 600px o menos */
 @media screen and (max-width: 600px) {
+    /* Logo arriba y titulo abajo, centrados */
     .marca {
         flex-direction: column;
         justify-content: center;
@@ -343,6 +367,7 @@ iframe {
         text-align: center;
     }
 
+    /* Menu en columna en vez de en fila */
     .header nav > ul {
         flex-direction: column;
         align-items: center;
@@ -350,6 +375,7 @@ iframe {
         padding-right: 0;
     }
 
+    /* El submenu deja de flotar y aparece dentro del flujo normal */
     nav ul ul {
         position: static;
         margin-top: 8px;
@@ -365,6 +391,8 @@ iframe {
     }
 }
 
+/* Tarjeta de la imagen de beneficios: ocupa las 2 columnas del grid
+   (grid-column: 1 / 3 = desde la linea 1 hasta la linea 3) */
 .beneficios-imagen {
     grid-column: 1 / 3;
     padding: 0;
@@ -372,6 +400,7 @@ iframe {
     background-color: #002b2b;
 }
 
+/* La imagen ocupa toda la tarjeta (anula el max-width de "article img") */
 .beneficios-imagen img {
     width: 100%;
     max-width: none;
@@ -380,6 +409,7 @@ iframe {
     margin: 0;
 }
 
+/* Parrafo con el enlace a la Superintendencia de Seguros */
 .enlace-oficial {
     margin-top: 15px;
     font-size: 13px;

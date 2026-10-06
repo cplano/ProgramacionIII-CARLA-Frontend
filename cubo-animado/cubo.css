@@ -1,9 +1,17 @@
+/* CUBO 3D ANIMADO CON CSS
+   Idea: 6 cuadrados (caras) de 400x400 que empiezan todos en el mismo lugar.
+   Con transform se mueve cada uno 200px (la mitad del lado) hacia afuera
+   y se lo gira 90 grados para que forme una cara del cubo.
+   Ejes: X = horizontal, Y = vertical, Z = hacia adelante/atras (profundidad). */
+
 body {
     margin: 0;
-    height: 100vh;
+    height: 100vh;            /* Alto de toda la ventana */
     display: flex;
     justify-content: center;  /* centra horizontalmente */
-    align-items: center;  /* centra verticalmente */
+    align-items: center;      /* centra verticalmente */
+    /* perspective: distancia del "ojo" al objeto. Sin esto el 3D se ve plano.
+       Menor valor = efecto 3D mas exagerado. */
     perspective: 1000px;
 }
 
@@ -11,54 +19,63 @@ body {
     width: 400px;
     height: 400px;
     display: flex;
+    /* preserve-3d: los hijos mantienen su posicion en 3D (si no, se aplastan en un plano) */
     transform-style: preserve-3d;
     justify-content: center;
+    /* relative: los hijos con position absolute se ubican respecto a este div */
     position: relative;
+    /* Aplica la animacion "girar" (definida abajo): dura 4 segundos,
+       se repite para siempre (infinite) y a velocidad constante (linear). */
     animation: girar 4s infinite linear;
 }
 
 .hijo {
     width: 400px;
     height: 400px;
-    position: absolute;
+    position: absolute; /* Todas las caras se superponen en el mismo lugar al inicio */
 }
 
-/* Izquierda */
+/* linear-gradient(direccion, color1, color2): degradado de un color a otro */
+
+/* Derecha: se mueve 200px a la derecha (X) y gira 90° sobre el eje Y */
 .cara1 {
     background-image: linear-gradient(to bottom, red, blue);
     transform: translateX(200px) rotateY(90deg);
 }
 
-/* Derecha */
+/* Izquierda: se mueve 200px a la izquierda (X negativo) y gira 90° sobre Y */
 .cara2 {
     background-image: linear-gradient(to bottom, green, blue);
     transform: translateX(-200px) rotateY(90deg);
 }
 
-/* Frente */
+/* Abajo: se mueve 200px hacia abajo (Y positivo) y gira 90° sobre el eje X */
 .cara3 {
     background-image: linear-gradient(to bottom, green, orange);
     transform: translateY(200px) rotateX(90deg);
 }
 
-/* Atras */
+/* Arriba: se mueve 200px hacia arriba (Y negativo) y gira 90° sobre X */
 .cara4 {
     background-image: linear-gradient(to bottom, red, violet);
     transform: translateY(-200px) rotateX(90deg);
 }
 
-/* Abajo */
+/* Atras: se aleja 200px (Z negativo). No necesita girar. */
 .cara5 {
     background-image: linear-gradient(to bottom, yellow, rgb(245, 154, 35));
     transform: translateZ(-200px);
 }
 
-/* Arriba */
+/* Frente: se acerca 200px (Z positivo). No necesita girar. */
 .cara6 {
     background-image: linear-gradient(to bottom, rgb(245, 51, 44), magenta);
     transform: translateZ(200px);
 }
 
+/* @keyframes define los pasos de una animacion.
+   Los % son momentos de la animacion (0% = inicio, 100% = final).
+   El navegador calcula solo las posiciones intermedias. */
 @keyframes girar {
     0% {
         transform: rotateY(0deg) rotateX(20deg);
@@ -76,6 +93,7 @@ body {
         transform: rotateY(270deg) rotateX(-30deg);
     }
 
+    /* 360° = vuelta completa: termina igual que empezo, asi el giro no "salta" */
     100% {
         transform: rotateY(360deg) rotateX(20deg);
     }

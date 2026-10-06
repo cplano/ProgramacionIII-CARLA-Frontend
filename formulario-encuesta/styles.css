@@ -1,31 +1,38 @@
+/* RESET: "*" selecciona TODOS los elementos.
+   Se sacan los margenes y rellenos que el navegador pone por defecto,
+   para empezar de cero y que se vea igual en todos los navegadores. */
 * {
     margin: 0;
     padding: 0;
+    /* border-box: el ancho (width) INCLUYE el padding y el borde.
+       Asi un elemento de 500px mide 500px aunque tenga padding. */
     box-sizing: border-box;
 }
 
 body {
     font-family: Arial, sans-serif;
-    color: #222;
+    color: #222; /* Color en hexadecimal: gris casi negro */
     background-image: url("fondo.jpg");
-    background-size: cover;
+    background-size: cover;        /* La imagen cubre toda la pantalla */
     background-position: center;
     background-repeat: no-repeat;
-    min-height: 100vh;
+    min-height: 100vh;             /* vh = alto de la ventana. 100vh = pantalla completa */
 }
 
 
 form {
     width: 500px;
-    margin: 30px auto;
+    margin: 30px auto;  /* 30px arriba/abajo, "auto" a los costados = centrado horizontal */
     padding: 25px;
+    /* rgba(rojo, verde, azul, opacidad): blanco con 90% de opacidad (un poco transparente) */
     background-color: rgba(255, 255, 255, 0.9);
     border: 2px solid #cfd8e3;
-    border-radius: 8px;
+    border-radius: 8px; /* Esquinas redondeadas */
 
+    /* FLEXBOX: ordena los hijos del form */
     display: flex;
-    flex-direction: column;
-    gap: 15px;
+    flex-direction: column; /* Uno debajo del otro (en columna) */
+    gap: 15px;              /* Espacio entre cada elemento */
 }
 
 
@@ -42,9 +49,10 @@ p {
 }
 
 label {
-    font-weight: bold;
+    font-weight: bold; /* Negrita */
 }
 
+/* La coma aplica la misma regla a varios selectores */
 input,
 select,
 textarea {
@@ -61,15 +69,18 @@ button {
     background-color: #1f6feb;
     color: white;
     font-size: 16px;
-    cursor: pointer;
+    cursor: pointer; /* El mouse se convierte en "manito" */
 }
 
+/* :hover = pseudoclase: se aplica cuando el mouse esta ENCIMA del boton */
 button:hover {
     background-color: #174ea6;
 }
 
+/* MEDIA QUERY (diseño responsive): estas reglas solo se aplican
+   cuando la pantalla mide 600px de ancho o menos (celulares). */
 @media (max-width: 600px) {
     form {
-        width: 90%;
+        width: 90%; /* El form ocupa el 90% del ancho en vez de 500px fijos */
     }
 }

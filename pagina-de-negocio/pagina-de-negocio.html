@@ -4,23 +4,34 @@
 <head>
     <meta charset="UTF-8">
     <title>SEGURO ASESOR</title>
+    <!-- favicon: el iconito que aparece en la pestaña del navegador -->
     <link rel="shortcut icon" href="images/favicon.ico">
+    <!-- Hoja de estilos compartida con about-us.html -->
     <link rel="stylesheet" href="pagina-de-negocio.css">
 </head>
 
 <body>
+    <!-- ESTRUCTURA SEMANTICA: header (encabezado), main (contenido principal),
+         section/article (bloques de contenido), aside (barra lateral), footer (pie).
+         Son como un <div>, pero le dicen al navegador y a los buscadores QUE es cada parte. -->
+
+    <!-- ===== HEADER: logo, menu y carrusel ===== -->
     <header class="header">
         <div class="marca">
+            <!-- alt: texto alternativo que se lee si la imagen no carga (y para lectores de pantalla) -->
             <img src="images/logo1.png" alt="Logo de Seguro Asesor">
+            <!-- <span> marca una parte del texto para darle otro estilo (SEGURO en dorado) -->
             <h1><span class="titulo-seguro">SEGURO</span> ASESOR</h1>
         </div>
 
+        <!-- MENU DE NAVEGACION. href="#" = enlace que todavia no lleva a ninguna pagina. -->
         <nav>
             <ul>
                 <li><a href="#">Inicio</a></li>
 
                 <li>
                     <a href="#">Seguros</a>
+                    <!-- Lista dentro de un <li> = SUBMENU desplegable (se muestra con :hover en el CSS) -->
                     <ul>
                         <li><a href="#">Seguro de auto</a></li>
                         <li><a href="#">Seguro de hogar</a></li>
@@ -37,12 +48,16 @@
                     </ul>
                 </li>
 
+                <!-- Enlace a la otra pagina del sitio (ruta relativa: mismo directorio) -->
                 <li><a href="about-us.html">Nosotros</a></li>
                 <li><a href="#">Contacto</a></li>
+                <!-- Boton destacado, empujado a la derecha con margin-left: auto -->
                 <li class="item-cotiza"><a class="boton-cotiza" href="#">Cotizá YA</a></li>
             </ul>
         </nav>
 
+        <!-- CARRUSEL hecho solo con CSS: .carrusel es la "ventana" y
+             .carrusel-contenedor tiene las 3 imagenes en fila y se desliza con una animacion -->
         <section class="carrusel">
             <div class="carrusel-contenedor">
                 <img src="images/banner1.png" alt="Seguro Asesor está con vos">
@@ -52,7 +67,9 @@
         </section>
     </header>
 
+    <!-- ===== MAIN: contenido principal (tarjetas) + aside ===== -->
     <main class="main">
+        <!-- .contenido es un GRID de 2 columnas; cada <article> es una tarjeta -->
         <section class="contenido">
             <article>
                 <h2>Atención personalizada para tus seguros</h2>
@@ -78,6 +95,7 @@
                 <p>Protegé tu casa y tus pertenencias con planes pensados para distintas necesidades familiares.</p>
             </article>
 
+            <!-- Tarjeta que ocupa las 2 columnas del grid (grid-column: 1 / 3) -->
             <article class="beneficios-imagen">
                 <img src="images/beneficios.png"
                     alt="Beneficios de Seguro Asesor: confianza, atención personalizada y gestión desde la app">
@@ -86,6 +104,10 @@
             <article class="horarios">
                 <h2>Horarios de atención</h2>
 
+                <!-- TABLA: <thead> = encabezado, <tbody> = cuerpo,
+                     <tr> = fila (table row), <td> = celda (table data).
+                     border, cellpadding y cellspacing son atributos viejos de HTML;
+                     hoy se hace con CSS (y el CSS tambien lo define). -->
                 <table class="horarios-grilla" border="1" cellpadding="10" cellspacing="0">
                     <thead>
                         <tr>
@@ -117,12 +139,16 @@
                 <h2>Video informativo</h2>
                 <p>Conocé más sobre la importancia de contar con un seguro adecuado.</p>
 
+                <!-- <iframe> inserta otra pagina dentro de esta: aca, un video de YouTube.
+                     Se usa la URL "embed" (no la normal de youtube.com/watch).
+                     allowfullscreen permite ver el video en pantalla completa. -->
                 <iframe width="560" height="315" src="https://www.youtube.com/embed/Ol2RSUIZ9nE"
                     title="Video sobre seguros" frameborder="0" allowfullscreen>
                 </iframe>
             </article>
         </section>
 
+        <!-- ASIDE: barra lateral con informacion complementaria -->
         <aside class="aside">
             <h3>Recomendaciones</h3>
 
@@ -132,8 +158,11 @@
                 <li><a href="#">Consultá opciones para auto, hogar y vida</a></li>
 
 
+                <!-- OJO: dentro de un <ul> solo deberian ir <li>. Este <p> funciona,
+                     pero lo correcto seria ponerlo despues del </ul>. -->
                 <p class="enlace-oficial">
                     Organismo de control:
+                    <!-- target="_blank": abre el enlace en una pestaña nueva -->
                     <a href="https://www.argentina.gob.ar/superintendencia-de-seguros" target="_blank">
                         Superintendencia de Seguros de la Nación
                     </a>
@@ -143,6 +172,7 @@
         </aside>
     </main>
 
+    <!-- ===== FOOTER: pie de pagina ===== -->
     <footer class="footer">
         <p>Dirección: AV ROCA 1757, SAN MIGUEL DE TUCUMÁN - LOCAL 2</p>
         <p>Seguro Asesor - 2026</p>

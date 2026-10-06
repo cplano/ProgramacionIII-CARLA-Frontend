@@ -1,3 +1,8 @@
+// SERVIDOR (Node + Express) para el renderizado del lado del servidor (SSR).
+// Archivo generado automaticamente por Angular: no hace falta modificarlo.
+// Entrega los archivos compilados de la carpeta /browser y, para cada pedido,
+// arma el HTML de la app Angular en el servidor antes de enviarlo al navegador.
+
 import {
   AngularNodeAppEngine,
   createNodeRequestHandler,

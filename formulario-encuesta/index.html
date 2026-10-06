@@ -4,6 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <title>Formulario de Encuesta</title>
+    <!-- Hoja de estilos externa -->
     <link rel="stylesheet" href="styles.css">
 
 </head>
@@ -12,18 +13,27 @@
     <h1>Formulario de Encuesta</h1>
     <p>Ayudanos a mejorar completando esta breve encuesta.</p>
 
-
+    <!-- <form> agrupa todos los campos que se envian juntos -->
     <form>
+        <!-- <label for="X"> se conecta con el campo que tiene id="X":
+             al hacer clic en el texto, se activa el campo. -->
         <label for="nombre">Nombre</label>
+        <!-- type="text": texto libre.
+             required: no deja enviar el formulario si esta vacio.
+             placeholder: texto gris de ayuda que desaparece al escribir. -->
         <input id="nombre" type="text" required placeholder="Ingresa tu nombre">
 
         <label for="email">Correo electrónico</label>
+        <!-- type="email": el navegador valida que tenga formato de mail (con @) -->
         <input id="email" type="email" required placeholder="Ingresa tu correo">
 
         <label for="edad">Edad</label>
+        <!-- type="number": solo numeros. min y max limitan el rango permitido. -->
         <input id="edad" type="number" min="13" max="120" placeholder="Ingresa tu edad">
 
         <label for="ocupacion">Ocupación</label>
+        <!-- <select>: lista desplegable. Cada <option> es una opcion.
+             value = lo que se envia; el texto entre etiquetas = lo que se ve. -->
         <select id="ocupacion" name="ocupacion">
             <option value="estudiante">Estudiante</option>
             <option value="trabajador">Trabajador/a</option>
@@ -31,6 +41,8 @@
 
         <p>¿Recomendarías este curso?</p>
 
+        <!-- type="radio": botones de opcion. Los que tienen el MISMO name forman un grupo
+             y solo se puede elegir UNO. El input dentro del label los conecta sin usar "for". -->
         <label>
             <input type="radio" name="recomendacion" value="si">
             Si
@@ -43,6 +55,7 @@
 
         <p>¿Qué temas te interesan?</p>
 
+        <!-- type="checkbox": casillas. A diferencia de radio, se pueden marcar VARIAS. -->
         <label>
             <input type="checkbox" name="temas" value="html">
             HTML
@@ -59,8 +72,11 @@
         </label>
 
         <label for="comentarios">Comentarios adicionales</label>
+        <!-- <textarea>: caja de texto de varias lineas -->
         <textarea id="comentarios" name="comentarios"></textarea>
 
+        <!-- submit: envia el formulario (antes valida los "required").
+             reset: borra todo lo escrito y vuelve a los valores iniciales. -->
         <button type="submit">Enviar</button>
         <button type="reset">Limpiar</button>
 

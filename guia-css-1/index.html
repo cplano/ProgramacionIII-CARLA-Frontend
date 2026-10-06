@@ -1,28 +1,37 @@
-<!DOCTYPE html>
-<html lang="es">
+<!DOCTYPE html> <!-- Documento HTML5 -->
+<html lang="es"> <!-- Idioma de la pagina: español -->
 
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- El <head> tiene informacion de la pagina que NO se ve en pantalla -->
+    <meta charset="UTF-8"> <!-- Permite acentos y ñ -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- Adaptable a celulares -->
     <title>Guía de ejercicios CSS</title>
 
+    <!-- Google Fonts: carga la fuente "Roboto" desde internet.
+         Los "preconnect" abren la conexion antes para que cargue mas rapido. -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
 
-
+    <!-- Hoja de estilos propia (CSS externo) -->
     <link rel="stylesheet" href="mis-estilos.css">
 </head>
 
 <body>
+    <!-- Titulo principal (en rojo por la regla "h1" del CSS) -->
     <h1>PROGRAMACIÓN III</h1>
 
+    <!-- class="texto-azul": se le aplica la regla .texto-azul del CSS -->
     <p class="texto-azul">Guía de ejercicios CSS</p>
 
+    <!-- Enlace (<a>). href = a donde lleva. El CSS le saca el subrayado. -->
     <a href="https://qualitycel.com/login/index.php">Ingresar al Aula Virtual</a>
 
+    <!-- Texto tachado con .texto-tachado -->
     <p class="texto-tachado">Quality ISAD</p>
 
+    <!-- <nav> = menu de navegacion. <ul> = lista sin orden, <li> = cada item.
+         El CSS le quita las viñetas (list-style: none). -->
     <nav>
         <ul>
             <li>Alumno</li>
@@ -33,13 +42,16 @@
 
     <h2>Contenido de la materia</h2>
 
+    <!-- EJERCICIO 9 - HERENCIA: un div padre con dos parrafos hijos -->
     <div class="padre">
         <p class="hijo">Este hijo fuerza la herencia del borde.</p>
         <p class="hijo-sobrescrito">Este hijo sobrescribe el borde.</p>
     </div>
 
+    <!-- EJERCICIO 10 - PARALLAX: seccion vacia que solo muestra la imagen de fondo fija -->
     <section class="seccion-parallax"></section>
 
+    <!-- Seccion con fondo blanco que pasa por encima del fondo fijo al hacer scroll -->
     <section class="contenido-normal">
         <h2>Contenido normal</h2>
         <p>Al hacer scroll, el fondo de la sección anterior queda quieto.</p>

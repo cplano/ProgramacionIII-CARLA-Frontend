@@ -1,41 +1,62 @@
+/* Estructura de una regla CSS:
+   selector {
+       propiedad: valor;
+   }
+   - "h1", "a", "body" (sin punto) seleccionan ETIQUETAS.
+   - ".texto-azul" (con punto) selecciona elementos con class="texto-azul".
+*/
+
+/* Todos los <h1> en rojo */
 h1 {
     color: red;
 }
 
+/* Elementos con class="texto-azul" */
 .texto-azul {
     color: blue;
 }
 
+/* Enlaces sin subrayado */
 a {
     text-decoration: none;
 }
 
+/* Texto con una linea en el medio (tachado) */
 .texto-tachado {
     text-decoration: line-through;
 }
 
+/* "nav ul" = selector descendiente: los <ul> que estan DENTRO de un <nav>.
+   list-style: none quita las viñetas (puntitos) de la lista. */
 nav ul {
     list-style: none;
 }
 
+/* Imagen de fondo de toda la pagina, sin repetirse en mosaico */
 body {
     background-image: url("fondo.jpg");
     background-repeat: no-repeat;
 }
 
+/* Fuente de toda la pagina. Si Roboto no carga, usa cualquier sans-serif. */
 body {
     font-family: 'Roboto', sans-serif;
 }
 
+/* El tamaño por defecto del navegador es 16px. 62.5% de 16px = 10px.
+   Truco para que las medidas "em"/"rem" sean faciles: 1rem = 10px. */
 html {
     font-size: 62.5%;
 }
 
+/* "em" es relativo al tamaño de letra del elemento padre: 3em = 3 veces ese tamaño. */
 h2 {
     font-size: 3em;
 }
 
 /*Ejercicio 8*/
+/* Este ejercicio tiene ERRORES A PROPOSITO para encontrarlos y corregirlos.
+   La explicacion y el codigo correcto estan en el comentario de abajo. */
 texto-verde {
     color: green font-size: 20px;
 }
@@ -71,17 +92,21 @@ codigo correcto::after
 */
 
 /*Ejercicio 9*/
+/* HERENCIA: algunas propiedades pasan solas del padre a los hijos (color, font)
+   y otras no (border, margin, padding). */
 .padre {
-    color: purple;
-    border: 2px solid black;
+    color: purple;            /* Se hereda: los hijos tambien son violetas */
+    border: 2px solid black;  /* NO se hereda automaticamente */
 }
 
+/* inherit = "usa el mismo valor que tu padre": fuerza la herencia del borde */
 .hijo {
     border: inherit;
 }
 
+/* Declara su propio borde, reemplazando cualquier otro */
 .hijo-sobrescrito {
-    border: 2px dashed red;
+    border: 2px dashed red; /* dashed = linea punteada */
 }
 
 /*
@@ -94,19 +119,20 @@ border: 2px dashed red; en .hijo-sobrescrito.
 */
 
 /*Ejercicio 10*/
+/* EFECTO PARALLAX */
 .seccion-parallax {
-    min-height: 400px;
+    min-height: 400px;               /* Altura minima para que se vea la imagen */
     background-image: url("fondo.jpg");
     background-repeat: no-repeat;
-    background-size: cover;
-    background-position: center;
-    background-attachment: fixed;
+    background-size: cover;          /* La imagen cubre toda la seccion (puede recortarse) */
+    background-position: center;     /* Centrada */
+    background-attachment: fixed;    /* CLAVE: la imagen queda fija al hacer scroll */
 }
 
 .contenido-normal {
     min-height: 500px;
     background-color: white;
-    padding: 40px;
+    padding: 40px; /* Espacio interno entre el borde y el contenido */
 }
 
 /*
