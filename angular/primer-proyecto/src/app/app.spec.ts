@@ -1,4 +1,5 @@
 import { TestBed } from '@angular/core/testing';
+import { provideRouter } from '@angular/router';
 import { App } from './app';
 
 // Tests del componente raíz (se ejecutan con "ng test")
@@ -7,6 +8,8 @@ describe('App', () => {
   beforeEach(async () => {
     await TestBed.configureTestingModule({
       imports: [App],
+      // App usa <router-outlet> y el Header usa routerLink: necesitan el router
+      providers: [provideRouter([])],
     }).compileComponents();
   });
 

@@ -4,16 +4,16 @@
   de cada componente, en el orden en que queremos que aparezcan:
 
   App
-   ├── Header
-   ├── Dashboard
-   └── Footer
+   ├── Header        (siempre visible)
+   ├── router-outlet (cambia según la URL: Dashboard en "/" o Login en "/login")
+   └── Footer        (siempre visible)
 -->
 
 <!-- Encabezado: componente Header (components/header) -->
 <app-header></app-header>
 
-<!-- Contenido principal: componente Dashboard (pages/dashboard) -->
-<app-dashboard></app-dashboard>
+<!-- Contenido principal: el router dibuja acá el componente de la ruta actual -->
+<router-outlet></router-outlet>
 
 <!-- Pie de página: componente Footer (components/footer) -->
 <app-footer></app-footer>

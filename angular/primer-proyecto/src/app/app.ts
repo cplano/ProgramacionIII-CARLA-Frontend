@@ -1,10 +1,12 @@
 // Importamos el decorador Component, que convierte una clase en un componente de Angular
 import { Component } from '@angular/core';
+// RouterOutlet: el "hueco" donde se dibuja el componente de la ruta actual
+import { RouterOutlet } from '@angular/router';
 
 // Importamos las clases de los componentes que vamos a usar dentro de App.
 // Las rutas son relativas a este archivo (./ = carpeta actual "app").
+// Dashboard y Login ya no se importan aca: los muestra el router (ver app.routes.ts).
 import { Header } from './components/header/header';
-import { Dashboard } from './pages/dashboard/dashboard';
 import { Footer } from './components/footer/footer';
 
 @Component({
@@ -14,8 +16,8 @@ import { Footer } from './components/footer/footer';
 
   // imports: como los componentes son "standalone", hay que declarar acá
   // los componentes que se usan en el template. Si no los importamos,
-  // Angular no reconoce <app-header>, <app-dashboard> ni <app-footer>.
-  imports: [Header, Dashboard, Footer],
+  // Angular no reconoce <app-header>, <router-outlet> ni <app-footer>.
+  imports: [Header, RouterOutlet, Footer],
 
   // templateUrl: archivo HTML con la vista del componente
   templateUrl: './app.html',
