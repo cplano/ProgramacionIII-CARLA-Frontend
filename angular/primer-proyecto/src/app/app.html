@@ -1,18 +1,6 @@
-<!--
-  Template del componente raíz (App).
-  Acá armamos la estructura de la aplicación usando los selectores
-  de cada componente, en el orden en que queremos que aparezcan:
-
-  App
-   ├── Header        (siempre visible)
-   ├── router-outlet (cambia según la URL: Dashboard en "/" o Login en "/login")
-   └── Footer        (siempre visible)
--->
-
 <!-- Encabezado: componente Header (components/header) -->
 <app-header></app-header>
 
-<!-- Contenido principal: el router dibuja acá el componente de la ruta actual -->
 <router-outlet></router-outlet>
 
 <!-- Pie de página: componente Footer (components/footer) -->

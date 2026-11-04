@@ -1,11 +1,11 @@
 /* Estilos del Header (solo afectan a header.html) */
 header {
-  background-color: #1976d2;  /* fondo azul */
-  color: white;               /* texto blanco */
-  padding: 15px;              /* espacio interno */
-  text-align: center;         /* texto centrado */
-  font-size: 24px;            /* tamaño del texto */
-  font-weight: bold;          /* texto en negrita */
+  background-color: #1976d2;
+  color: white;
+  padding: 15px;
+  text-align: center;
+  font-size: 24px;
+  font-weight: bold;
 }
 
 /* Menú: enlaces en fila, centrados, con espacio entre ellos */
@@ -18,9 +18,9 @@ nav {
 
 nav a {
   color: white;
-  text-decoration: none;      /* sin subrayado */
+  text-decoration: none;
 }
 
 nav a:hover {
-  text-decoration: underline; /* subrayado al pasar el mouse */
+  text-decoration: underline;
 }

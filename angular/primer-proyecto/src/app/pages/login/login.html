@@ -1,19 +1,11 @@
-<!--
-  Template del Login.
-  [formGroup]="loginForm": conecta este <form> con el FormGroup definido en login.ts
-  (ngSubmit)="login()": al enviar el formulario se ejecuta el metodo login() del componente
--->
 <main>
   <h2>Iniciar sesión</h2>
 
   <form [formGroup]="loginForm" (ngSubmit)="login()">
 
     <label for="email">Email</label>
-    <!-- formControlName="email": conecta este input con el FormControl "email" -->
     <input id="email" type="email" formControlName="email" placeholder="ejemplo@email.com">
 
-    <!-- @if: muestra el bloque solo si la condicion es verdadera.
-         touched = el usuario ya paso por el campo; hasError = no cumple un Validator -->
     @if (loginForm.controls.email.touched && loginForm.controls.email.hasError('required')) {
       <small class="error">El email es obligatorio.</small>
     }
@@ -29,7 +21,6 @@
       <small class="error">La contraseña es obligatoria.</small>
     }
 
-    <!-- [disabled]: el boton se deshabilita mientras se espera la respuesta de la API -->
     <button type="submit" [disabled]="cargando()">
       {{ cargando() ? 'Ingresando...' : 'Iniciar sesión' }}
     </button>
@@ -43,7 +34,6 @@
   <!-- Login exitoso: se muestra el token recibido -->
   @if (token()) {
     <div class="exito">
-      <!-- {{ }} = interpolacion: muestra el valor de la variable en el HTML -->
       <p>¡Bienvenido/a, {{ usuario() }}!</p>
       <p>Token recibido:</p>
       <code>{{ token() }}</code>

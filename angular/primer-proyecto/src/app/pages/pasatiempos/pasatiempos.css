@@ -1,5 +1,3 @@
-/* Estilos de Pasatiempos (encapsulados: solo afectan a pasatiempos.html) */
-
 main {
   padding: 20px;
   background-color: #f4f4f4;
@@ -33,11 +31,11 @@ form {
 
 label {
   font-weight: bold;
-  white-space: nowrap; /* "Pasatiempo 1" no se corta en dos lineas */
+  white-space: nowrap;
 }
 
 input {
-  flex: 1; /* el input ocupa todo el espacio que sobra */
+  flex: 1;
   padding: 10px;
   border: 1px solid #ccc;
   border-radius: 5px;

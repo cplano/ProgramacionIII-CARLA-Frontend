@@ -1,5 +1,3 @@
-/* Estilos del Registro (encapsulados: solo afectan a registro.html) */
-
 main {
   padding: 20px;
   background-color: #f4f4f4;
@@ -58,7 +56,7 @@ input {
 }
 
 button {
-  flex: 1; /* los dos botones ocupan el mismo ancho */
+  flex: 1;
   padding: 12px;
   border: none;
   border-radius: 5px;
@@ -93,7 +91,7 @@ button:disabled {
 }
 
 pre {
-  white-space: pre-wrap; /* el JSON hace salto de linea si no entra */
+  white-space: pre-wrap;
 }
 
 .ayuda {

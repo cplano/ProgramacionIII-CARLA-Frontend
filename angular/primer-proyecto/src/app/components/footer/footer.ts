@@ -7,5 +7,4 @@ import { Component } from '@angular/core';
   templateUrl: './footer.html',
   styleUrl: './footer.css',
 })
-// Componente reutilizable: por eso está en la carpeta "components"
 export class Footer {}
