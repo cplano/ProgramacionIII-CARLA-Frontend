@@ -1,0 +1,92 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    color: #222;
+    background-image: url("fondo.jpg");
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    min-height: 100vh;
+}
+
+
+form {
+    width: 500px;
+    margin: 30px auto;
+    padding: 25px;
+    background-color: rgba(255, 255, 255, 0.9);
+    border: 2px solid #cfd8e3;
+    border-radius: 8px;
+
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+
+h1 {
+    text-align: center;
+    color: #1f3b57;
+}
+
+.descripcion {
+    text-align: center;
+    margin-bottom: 10px;
+}
+
+label {
+    font-weight: bold;
+}
+
+fieldset {
+    border: 1px solid #cfd8e3;
+    border-radius: 5px;
+    padding: 10px 15px;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+legend {
+    font-weight: bold;
+    padding: 0 5px;
+}
+
+fieldset label {
+    font-weight: normal;
+}
+
+input,
+select,
+textarea {
+    padding: 10px;
+    border: 1px solid #9aa8b5;
+    border-radius: 5px;
+    font-size: 16px;
+    font-family: inherit;
+}
+
+button {
+    padding: 12px;
+    border: none;
+    border-radius: 5px;
+    background-color: #1f6feb;
+    color: white;
+    font-size: 16px;
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: #174ea6;
+}
+
+@media (max-width: 600px) {
+    form {
+        width: 90%;
+    }
+}

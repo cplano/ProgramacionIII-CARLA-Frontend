@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Formulario de Encuesta</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+    <form>
+        <h1>Formulario de Encuesta</h1>
+        <p class="descripcion">Ayudanos a mejorar completando esta breve encuesta.</p>
+
+        <label for="nombre">Nombre</label>
+        <input id="nombre" name="nombre" type="text" required placeholder="Ingresa tu nombre">
+
+        <label for="email">Correo electrónico</label>
+        <input id="email" name="email" type="email" required placeholder="Ingresa tu correo">
+
+        <label for="edad">Edad</label>
+        <input id="edad" name="edad" type="number" min="13" max="120" placeholder="Ingresa tu edad (13 a 120)">
+
+        <label for="ocupacion">Ocupación</label>
+        <select id="ocupacion" name="ocupacion">
+            <option value="estudiante">Estudiante</option>
+            <option value="trabajador">Trabajador/a</option>
+        </select>
+
+        <fieldset>
+            <legend>¿Recomendarías este curso?</legend>
+
+            <label>
+                <input type="radio" name="recomendacion" value="si">
+                Sí
+            </label>
+
+            <label>
+                <input type="radio" name="recomendacion" value="no">
+                No
+            </label>
+        </fieldset>
+
+        <fieldset>
+            <legend>¿Qué temas te interesan?</legend>
+
+            <label>
+                <input type="checkbox" name="temas" value="html">
+                HTML
+            </label>
+
+            <label>
+                <input type="checkbox" name="temas" value="css">
+                CSS
+            </label>
+
+            <label>
+                <input type="checkbox" name="temas" value="javascript">
+                JavaScript
+            </label>
+        </fieldset>
+
+        <label for="comentarios">Comentarios adicionales</label>
+        <textarea id="comentarios" name="comentarios" placeholder="Escribí tus comentarios"></textarea>
+
+        <button type="submit">Enviar</button>
+        <button type="reset">Limpiar</button>
+    </form>
+</body>
+
+</html>

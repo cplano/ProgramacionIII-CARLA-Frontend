@@ -5,7 +5,8 @@ Trabajos de frontend de la materia. El backend (API .NET) está en un repositori
 | Carpeta | Trabajo |
 |---------|---------|
 | `guia-css-1` | Guía CSS 1 |
-| `formulario-encuesta` | Formulario de encuesta |
+| `formulario-encuesta` | Formulario de encuesta — **Ejercicio 2 (HTML)** (entrega original) |
+| `formulario-encuesta-corregido` | **Ejercicio 2 (HTML) corregido**: h1 y p dentro del form, atributo name en todos los campos, viewport, fieldset/legend y encabezado legible |
 | `cubo-animado` | Cubo animado con CSS |
 | `pagina-de-negocio` | Página de negocio |
 | `control-de-flujos` | Control de flujos, ciclos e iteraciones |
